@@ -18,26 +18,54 @@ namespace DiceGame
             //комментарии к переменным: userThrow - бросок пользователем; cpuScore - бросок компьютера;
 
 
-            Console.WriteLine("user vs computer");
+            Console.WriteLine("Dice game! User vs computer");
+            Console.WriteLine("To start press enter!");
+            Console.ReadKey();
 
-            rnd Random = Random();
+            Random rnd = new Random();
 
-            char userThrow = rnd.Next(1, 6);
-            string cpuThrow = rnd.Next(1, 6);
+            int userThrow;
+            int cpuThrow;
+            int userScore = 0;
+            int cpuScore = 0;
 
-            if (userThrow > cpuThrow) ;
-            {
-                Console.WriteLine("Победил пользователь");
-            }
             
-            if(userThrow >= cpuThrow)
+            for (int i = 0; i < 1; i++)
             {
-                Console.WriteLine("Победил пользователь");
+
+                Console.WriteLine("Computer rolls the dice");
+                cpuThrow = rnd.Next(1, 7);
+
+                Console.WriteLine("Computers score " + cpuThrow);
+
+                Console.WriteLine("   ");
+
+                userThrow = rnd.Next(1, 7);
+                Console.WriteLine("Users turn. Press enter");
+                Console.ReadKey();
+                Console.WriteLine("Roll the dice");
+                Console.WriteLine("Users score " + userThrow);
+                Console.WriteLine("   ");
+
+
+                if (userThrow > cpuThrow)
+                {
+                    userScore++;
+                    Console.WriteLine("User wins");
+                }
+                else if (userThrow < cpuThrow)
+                {
+                    cpuScore++;
+                    Console.WriteLine("Computer wins");
+                }
+                else
+                {
+                    Console.WriteLine("Draw");
+                }
             }
-            else if(userThrow = cpuThrow)
-            {
-                Console.WriteLine("Ничья");
-            }
+
+
+           
 
         }
     }
